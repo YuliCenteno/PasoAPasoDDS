@@ -3,6 +3,7 @@ const express = require('express');
 // Crear servidor Express
 const app = express();
 app.use(express.json()); // para poder leer json en el body
+const inicializarBase = require("./models/inicializarBase");  // inicializar base de datos
 
 // Controlar ruta
 app.get("/", (req, res) => {
@@ -11,6 +12,9 @@ app.get("/", (req, res) => {
 
 const categoriasmockRouter = require("./routes/categoriasmock");
 app.use(categoriasmockRouter);
+
+const categoriasRouter = require("./routes/categorias");
+app.use(categoriasRouter);
 
 
 // Levantar el servidor

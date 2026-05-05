@@ -16,6 +16,18 @@ app.use(categoriasmockRouter);
 const categoriasRouter = require("./routes/categorias");
 app.use(categoriasRouter);
 
+const articulosRouter = require("./routes/articulos");
+app.use(articulosRouter);
+
+
+// configurar servidor
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "*", // origin: 'https://dds-frontend.azurewebsites.net'
+  })
+);
+
 
 // Levantar el servidor
 const PORT = 3000;
